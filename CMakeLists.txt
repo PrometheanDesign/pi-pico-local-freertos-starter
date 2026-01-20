@@ -58,6 +58,7 @@ target_include_directories(pico-freertos-starter PRIVATE
 
 target_link_libraries(pico-freertos-starter
     pico_stdlib
+    pico_cyw43_arch_none
     hardware_timer
     pico_unique_id
     pico_multicore
