@@ -27,6 +27,12 @@ Kernel Book](https://github.com/FreeRTOS/FreeRTOS-Kernel-Book/blob/main/ch03.md)
 > This project supports the Pico SDK VS Code extension. If you use VS Code as
 > your IDE, you can install the Pico SDK extension and ththe setup process is
 > done for you.
+> [!NOTE]
+> This branch assumes that the Pico SDK is installed at a location specified
+> by the PICO_SDK_PATH environment variable (e.g. /opt/pico/pico-sdk), and
+> the FreeRTOS Kernel is installed at a location specified by the
+> FREERTOS_KERNEL_PATH environment variable (e.g. /opt/pico/FreeRTOS-Kernel).
+> The FreeRTOS kernel is not downloaded by the project.
 
 ### Requirements
 

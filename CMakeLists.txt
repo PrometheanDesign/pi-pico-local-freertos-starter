@@ -21,10 +21,11 @@ if (EXISTS ${picoVscode})
     include(${picoVscode})
 endif()
 # ====================================================================================
-set(PICO_BOARD pico2 CACHE STRING "Board type")
+set(PICO_BOARD pico2_w CACHE STRING "Board type")
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
-include(pico_sdk_import.cmake)
+set(PICO_SDK_PATH "$ENV{PICO_SDK_PATH}" CACHE PATH "Path to Pico SDK")
+include(${PICO_SDK_PATH}//external/pico_sdk_import.cmake)
 
 project(pico-freertos-starter C CXX ASM)
 
@@ -35,8 +36,12 @@ add_library(freertos_config INTERFACE)
 # The include path should be set to the directory where you have FreeRTOSConfig.h
 target_include_directories(freertos_config SYSTEM INTERFACE include)
 target_compile_definitions(freertos_config INTERFACE projCOVERAGE_TEST=0)
-set(FREERTOS_KERNEL_PATH ${CMAKE_SOURCE_DIR}/FreeRTOS)
-include(FreeRTOS_Kernel_Import.cmake)
+#set(FREERTOS_KERNEL_PATH ${CMAKE_SOURCE_DIR}/FreeRTOS)
+#include(FreeRTOS_Kernel_Import.cmake)
+set(FREERTOS_KERNEL_PATH "$ENV{FREERTOS_KERNEL_PATH}" CACHE PATH "Path to FreeRTOS Kernel")
+set(FREERTOS_PORT GCC_RP2040 CACHE STRING "")
+set(FREERTOS_HEAP 4 CACHE STRING "")
+include(${FREERTOS_KERNEL_PATH}/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
 
 add_executable(pico-freertos-starter
     main.c)
