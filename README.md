@@ -88,7 +88,7 @@ with the Raspberry Pi Debug Probe.
 
 ## Other Notes
 
-- By default, the project is set up to build for the pico2 with the RP2350 in ARM
+- By default, the project is set up to build for the pico2_w with the RP2350 in ARM
 mode. You can modify the `CMakeLists.txt` file to change the board and platform
 for your needs.
 
@@ -101,6 +101,11 @@ Raspberry Pi. This fork provides a port for the RP2350 which seems to be
 absent from the mainline kernel. Unfortunately, this fork does not keep track
 of the versions in the mainline repository. If you would like to use the
 mainline repository you will need to port ityourself for the RP2350.
+
+- The project includes a Dockerfile for creating and running a Docker image
+which hosts a Raspberry Pi Pico development environment on Ubuntu. Also included
+are convenience tools for creating the Docker image and container, and for
+starting / running this container.
 
 ## See Also
 
