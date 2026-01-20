@@ -27,6 +27,7 @@ Kernel Book](https://github.com/FreeRTOS/FreeRTOS-Kernel-Book/blob/main/ch03.md)
 > This project supports the Pico SDK VS Code extension. If you use VS Code as
 > your IDE, you can install the Pico SDK extension and ththe setup process is
 > done for you.
+
 > [!NOTE]
 > This branch assumes that the Pico SDK is installed at a location specified
 > by the PICO_SDK_PATH environment variable (e.g. /opt/pico/pico-sdk), and
@@ -40,17 +41,27 @@ Kernel Book](https://github.com/FreeRTOS/FreeRTOS-Kernel-Book/blob/main/ch03.md)
 2. Raspberry Pi Pico C SDK
 
 > [!IMPORTANT]
-> The project assumes the Pico SDK is installed in your home directory and in a
-> folder named `.pico-sdk`. I.e., `/Users/dev/.pico-sdk/`
+> The project assumes the Pico SDK is installed at a location specified
+> by the `PICO_SDK_PATH` environment variable (e.g. `/opt/pico/pico-sdk`)
+
+> [!IMPORTANT]
+> The project assumes the FreeRTOS Kernel is installed at a location specified
+> by the `FREERTOS_KERNEL_PATH` environment variable (e.g. `/opt/pico/FreeRTOS-Kernel`)
+
+> [!IMPORTANT]
+> The FreeRTOS Kernel version which is cached and referenced by `FREERTOS_KERNEL_PATH`
+> should be cloned from `https://github.com/raspberrypi/FreeRTOS-Kernel/tree/main`
 
 ### Building
 
 1. Clone the project on to your system
 
-2.Within the project root, update the submodules to clone the FreeRTOS kernel
+2. Set the environment variables for `PICO_SDK_PATH` and `FREERTOS_KERNEL_PATH` to point
+to the appropriate Pico SDK and FreeRTOS directories
 
 ```shell
-$ git submodule update --init FreeRTOS
+$ export PICO_SDK_PATH="/opt/pico/pico-sdk"
+$ export FREERTOS_KERNEL_PATH="/opt/pico/FreeRTOS-Kernel"
 ```
 
 3. Within the project root, use CMake to generate the build scripts
